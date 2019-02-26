@@ -104,7 +104,7 @@
 
 - Java技术体系所包含的内容
 
-  ![Java技术体系所包含的内容](https://github.com/jiangshuangjun/pictures/blob/master/JDK.jpg)
+  ![Java技术体系所包含的内容](https://github.com/jiangshuangjun/pictures/blob/master/JDK.png)
 
 ##  **为什么 Java 被称作是“平台无关的编程语言”？**
 
