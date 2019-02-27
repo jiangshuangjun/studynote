@@ -446,7 +446,7 @@ Process finished with exit code 0
 
 这个问题，和上个 [「如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？」](#22) 一样的答案。
 
-<span align = "right">[回到顶部](#0)</span>
+<span align = "right" style='float:right;'>[回到顶部](#0)</span>
 
 <span id = "24">
 
