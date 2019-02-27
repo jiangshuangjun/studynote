@@ -896,8 +896,6 @@ UnsupportedOperationException ，是用于表明操作不支持的异常。
 - 使用 clone 方法创建对象。
 - 使用(反)序列化机制创建对象。
 
-<br/>
-
 ---
 
 参考与推荐如下文章：
@@ -907,3 +905,5 @@ UnsupportedOperationException ，是用于表明操作不支持的异常。
 - [Java总结](http://www.n35n.com/2017/07/JAVA%E6%80%BB%E7%BB%93/)
 - [Java基础知识](https://github.com/Snailclimb/JavaGuide/blob/3dc5234d3a77d134e4768b17cc864c4cc1030e41/Java%E7%9B%B8%E5%85%B3/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
 - [Java面试宝典](http://wiki.jikexueyuan.com/project/java-interview-bible/basic-concept.html)
+
+<span>[回到顶部](#0)</span>
