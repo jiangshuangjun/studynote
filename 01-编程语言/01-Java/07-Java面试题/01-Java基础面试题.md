@@ -1,16 +1,33 @@
-- Java基础面试题TOC
+- **Java基础面试题**
 
-  - [01 - 什么是面向对象？](#1)
+  - [**01 - 什么是面向对象？**](#1)
 
-  - [02 - 请说说面向对象的特征？](#2)
-  - [03 - 面向对象和面向过程的区别？](#3)
-  - [04 - 重载和重写的区别？](#4)
-  - [05 - Java 中，什么是构造方法？什么是构造方法重载？什么是拷贝构造方法？](#5)
-  - [06 - JDK、JRE、JVM 分别是什么关系？](#6)
-  - [07 - 为什么 Java 被称作是“平台无关的编程语言”？](#7)
-  - [08 - JDK 各版本的新特性？](#8)
-  - [09 - Java 和 C++ 的区别？](#9)
-  - [10 - 什么是字节码？采用字节码的最大好处是什么？](#10)
+  - [**02 - 请说说面向对象的特征？**](#2)
+  - [**03 - 面向对象和面向过程的区别？**](#3)
+  - [**04 - 重载和重写的区别？**](#4)
+  - [**05 - Java 中，什么是构造方法？什么是构造方法重载？什么是拷贝构造方法？**](#5)
+  - [**06 - JDK、JRE、JVM 分别是什么关系？**](#6)
+  - [**07 - 为什么 Java 被称作是“平台无关的编程语言”？**](#7)
+  - [**08 - JDK 各版本的新特性？**](#8)
+  - [**09 - Java 和 C++ 的区别？**](#9)
+  - [**10 - 什么是字节码？采用字节码的最大好处是什么？**](#10)
+  - [**11 - Java 中的几种基本数据类型是什么？各自占用多少字节？**](#11)
+  - [**12 - 什么是值传递和引用传递？**](#12)
+  - [**13 - 是否可以在 static 环境中访问非 static 变量？**](#13)
+  - [**14 - char 型变量中能不能存贮一个中文汉字？为什么？**](#14)
+  - [**15 - String、StringBuffer、StringBuilder 的区别？**](#15)
+  - [**16 - 对于String、StringBuffer、StringBuidler三者使用的总结？**](#16)
+  - [**17 - `String s = new String("xyz")` 会创建几个对象？**](#17)
+  - [**18 - String 为什么是不可变的？**](#18)
+  - [**19 - StringTokenizer 是什么？**](#19)
+  - [**20 - 什么是自动拆装箱？**](#20)
+  - [**21 - equals 与 == 的区别？**](#21)
+  - [**22 - 如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？**](#22)
+  - [**23 - 说一说你对 java.lang.Object 对象中 hashCode 和 equals 方法的理解。在什么场景下需要重新实现这两个方法?**](#23)
+  - [**24 - 这样的 a.hashCode() 有什么用，与 a.equals(b) 有什么关系?**]()
+  - [**25 - 有没有可能 2 个不相等的对象有相同的 hashCode？**](#25)
+  - [**26 - final、finally、finalize 的区别？**](#26)
+  - [**27 - String 类能被继承吗，为什么？**](#27)
 
 <span id = "1">
 
@@ -203,3 +220,305 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
   > >
   > > 例如：Python、PHP 
 
+<span id = "11">
+
+<br/>
+
+## **Java 中的几种基本数据类型是什么？各自占用多少字节？**
+
+Java 支持的数据类型包括基本数据类型和引用类型。
+
+**基本数据**类型如下：
+
+- 整数值型：`byte`(1字节8位)、`short`(2字节16位)、`int`(4字节32位)、`long`(8字节64位)
+- 字符型：`char`(2字节16位)
+- 浮点类型：`float`(4字节32位)、`double`(8字节64位)
+- 布尔型：`boolean`(1字节8位)
+- 整数型：默认 `int` 型，小数默认是 `double` 型。Float 和 Long 类型的必须加后缀。比如：`float f = 100f` 。
+- 关于boolean占几个字节，众说纷纭，虽然boolean表现出非0即1的“位”特性，但是存储空间的基本计量单位是字节，不是位。所以boolean至少占1个字节。  JVM规范中，boolean变量当作int处理，也就是4字节；而boolean数组当做byte数组处理，即boolean类型的数组里面的每一个元素占1个字节。
+
+**引用类型**声明的变量是指该变量在内存中实际存储的是一个引用地址，实体在堆中。
+
+- 引用类型包括类、接口、数组等。
+- 特别注意，String 是引用类型不是基本类型。
+
+**字节(byte)与位(bit)科普：**
+
+- **位(bit)：**位是计算机中存储数据的最小单位，指二进制数中的一个位数，其值为“0”或“1”。
+- **字节(byte)：**字节是计算机存储容量的基本单位，一个字节由8位二进制数组成。在计算机内部，一个字节可以表示一个数据，也可以表示一个英文字母，两个字节可以表示一个汉字。
+
+<span id = "12">
+
+<br/>
+
+## **什么是值传递和引用传递？**
+
+一般认为，Java 内的传递都是值传递，Java 中实例对象的传递是引用传递。
+
+- 值传递，是对基本型变量而言的，传递的是该变量的一个副本，改变副本不影响原变量。
+- 引用传递，一般是对于对象型变量而言的，传递的是该对象地址的一个副本，并不是原对象本身。
+
+<span id = "13">
+
+<br/>
+
+## **是否可以在 static 环境中访问非 static 变量？**
+
+`static` 变量在 Java 中是属于类的，它在所有的实例中的值是一样的。当类被 Java 虚拟机载入的时候，会对 `static` 变量进行初始化。
+
+如果你的代码尝试不用实例来访问非 `static` 的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。
+
+<span id = "14">
+
+<br/>
+
+## **char 型变量中能不能存贮一个中文汉字？为什么？**
+
+- 在 C 语言中，char 类型占 1 个字节，而汉字占 2 个字节，所以不能存储。
+- 在 Java 语言中，char 类型占 2 个字节，而且 Java 默认采用 Unicode 编码，一个 Unicode 码是 16 位，所以一个 Unicode 码占两个字节，Java 中无论汉字还是英文字母，都是用 Unicode 编码来表示的。所以，在 Java 中，char 类型变量可以存储一个中文汉字。
+
+<span id = "15">
+
+<br/>
+
+## **String、StringBuffer、StringBuilder 的区别？**
+
+Java 平台提供了两种类型的字符串：String 和 StringBuffer/StringBuilder，它们可以储存和操作字符串。
+
+- String ，是只读字符串，也就意味着 String 引用的字符串内容是不能被改变的。
+
+  > 每次对 String 类型进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象。
+
+- StringBuffer/StringBuilder 类，表示的字符串对象可以直接进行修改。StringBuilder 是 Java 5 中引入的，它和 StringBuffer 的方法完全相同，区别在于它是在单线程环境下使用的，因为它的所有方面都没有被 `synchronized` 修饰，因此它的效率也比 StringBuffer 要高。
+
+  > StringBuffer 每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象并改变对象引用。
+  >
+  > 相同情况下使用 StirngBuilder 相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险。
+
+<span id = "16">
+
+<br/>
+
+## **对于String、StringBuffer、StringBuidler三者使用的总结？**
+
+- 操作少量的数据用 String 。
+
+  > 这个也是实际编码较为经常使用的方式。
+
+- 单线程操作字符串缓冲区下操作大量数据用 StringBuilder 。
+
+  > 甚至有时，我们为了避免每个线程重复创建 StringBuilder 对象，会通过 ThreadLocal + StringBuilder 的方式，进行对 StringBuilder 的重用。具体可以参考 [《StringBuilder 在高性能场景下的正确用法》](http://nathanchen.github.io/14596982516208.html) 文章。
+
+- 多线程操作字符串缓冲区下操作大量数据用 StringBuffer。
+
+  > 实际场景下，我们基本不太会出现，多线程操作同一个 StringBuffer 对象。
+
+<span id = "17">
+
+<br/>
+
+## **`String s = new String("xyz")` 会创建几个对象？**
+
+- 首先，在 String 池内找，找到 `"xyz"` 字符串，不创建 `"xyz"` 对应的 String 对象，否则创建一个对象。
+- 然后，遇到 `new` 关键字，在内存上创建 String 对象，并将其返回给 `s` ，又一个对象。
+
+所以，总共是 1 个或者 2 个对象。
+
+具体的，可以看看 [《关于String s = new String(“xyz”); 创建几个对象的问题》](https://blog.csdn.net/tzs_1041218129/article/details/69367423) 文章的测试代码。
+
+<span id = "18">
+
+<br/>
+
+## **String 为什么是不可变的？**
+
+简单的来说，String 类中使用 `final` 关键字修饰的字符数组保存字符串。代码如下：
+
+```java
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+    ...
+}
+```
+
+- 所以 String 对象是不可变的。
+
+而 StringBuilder 与 StringBuffer 都继承自 AbstractStringBuilder 类，在 AbstractStringBuilder 中也是使用字符数组保存字符串 `char[] value` ，但是没有用 `final` 关键字修饰。代码如下：
+
+```java
+abstract class AbstractStringBuilder implements Appendable, CharSequence {
+    /**
+     * The value is used for character storage.
+     */
+    char[] value;
+    ...
+}
+```
+
+- 所以这两种对象都是可变的。
+
+<span id = "19">
+
+<br/>
+
+## **StringTokenizer 是什么？**
+
+StringTokenizer ，是一个用来分割字符串的工具类。示例代码如下：
+
+```java
+public static void main(String[] args) {
+    StringTokenizer st = new StringTokenizer("Hello World");
+
+    while (st.hasMoreTokens()) {
+        System.out.println(st.nextToken());
+    }
+}
+```
+
+输出如下：
+
+```java
+...
+    
+Hello
+World
+
+Process finished with exit code 0
+```
+
+<span id = "20">
+
+<br/>
+
+## **什么是自动拆装箱？**
+
+自动装箱和拆箱，就是基本类型和引用类型之间的转换。自动装箱就是将基本数据类型自动转换成对应的包装类；自动拆箱就是将包装类自动转换成对应的基本数据类型。
+
+- **为什么要转换？**
+
+  如果你在 Java5 下进行过编程的话，你一定不会陌生这一点，你不能直接地向集合( Collection )中放入原始类型值，因为集合只接收对象。
+
+  - 通常这种情况下你的做法是，将这些原始类型的值转换成对象，然后将这些转换的对象放入集合中。使用 Integer、Double、Boolean 等这些类，我们可以将原始类型值转换成对应的对象，但是从某些程度可能使得代码不是那么简洁精炼。
+  - 为了让代码简练，Java5 引入了具有在原始类型和对象类型自动转换的装箱和拆箱机制。
+  - 但是自动装箱和拆箱并非完美，在使用时需要有一些注意事项，如果没有搞明白自动装箱和拆箱，可能会引起难以察觉的 Bug 。
+
+- **int 和 Integer 有什么区别？**
+  - `int` 是基本数据类型。
+  - Integer 是其包装类，注意是一个类。
+
+当然，要注意下 Integer 的缓存策略，可以看看 [《理解Java Integer 的缓存策略》](http://www.importnew.com/18884.html) 文章。
+
+<span id = "21">
+
+<br/>
+
+## **equals 与 == 的区别？**
+
+- 值类型（`byte`,`int`,`short`,`long`,`float`,`double`,`char`,`boolean`）的话
+
+  - 都是用 == 判断相等性。
+
+- 对象引用的话
+
+  - == 判断引用所指的对象是否是同一个。
+
+  - equals 方法，是 Object 的成员函数，有些类会覆盖(`override`) 这个方法，用于判断对象的等价性。
+
+    > 例如 String 类，两个引用所指向的 String 都是 `"abc"` ，但可能出现他们实际对应的对象并不是同一个（和 JVM 实现方式有关），因此用 == 判断他们可能不相等，但用 equals 方法判断一定是相等的。
+
+<span id = "22">
+
+<br/>
+
+## **如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？**
+
+父类的 equals ，一般情况下是无法满足子类的 equals 的需求。
+
+- 比如所有的对象都继承 Object ，默认使用的是 Object 的 equals 方法，在比较两个对象的时候，是看他们是否指向同一个地址。但是我们的需求是对象的某个属性相同，就相等了，而默认的 equals 方法满足不了当前的需求，所以我们要重写 equals 方法。
+- 如果重写了 equals 方法，就必须重写 hashCode 方法，否则就会降低 Map 等集合的索引速度。
+
+<span id = "23">
+
+<br/>
+
+## **说一说你对 java.lang.Object 对象中 hashCode 和 equals 方法的理解。在什么场景下需要重新实现这两个方法?**
+
+这个问题，和上个 [「如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？」](#23) 一样的答案。
+
+<span id = "24">
+
+<br/>
+
+## **这样的 a.hashCode() 有什么用，与 a.equals(b) 有什么关系?**
+
+> 这个问题，和上述问题，就是换个姿势，差不了太多。
+
+- equals 方法，用于比较对象的内容是否相等。
+
+  > 当覆盖了 equals 方法时，比较对象是否相等将通过覆盖后的 equals 方法进行比较（判断对象的内容是否相等）。
+
+- hashCode 方法，大多在集合中用到。
+
+  > 将对象放入到集合中时，首先判断要放入对象的 hashCode 值与集合中的任意一个元素的 hashCode 值是否相等，如果不相等直接将该对象放入集合中。
+  >
+  > 如果 hashCode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。
+
+<span id = "25">
+
+<br/>
+
+## **有没有可能 2 个不相等的对象有相同的 hashCode？**
+
+可能会发生，这个被称为**哈希碰撞**。当然，相等的对象，即我们重写了 equals 方法，一定也要重写 hashCode 方法，否则将出现我们在 HashMap 中，相等的对象作为 key ，将找不到对应的 value 。
+
+所以说，equals 和 hashCode 的关系是：
+
+- equals 不相等，hashCode 可能相等。
+- equals 相等，请重写 hashCode 方法，保证 hashCode 相等。
+
+一般来说，hashCode 方法的重写，可以看看 [《科普：为什么 String hashCode 方法选择数字31作为乘子》](https://segmentfault.com/a/1190000010799123) 方法。
+
+<span id = "26">
+
+<br/>
+
+## **final、finally、finalize 的区别？**
+
+- **final**
+
+  `final` ，是修饰符关键字。
+
+  - 如果一个类被声明为 `final` ，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 `abstract` 的，又被声明为 `final` 的。
+
+  - 将变量或方法声明为 `final` ，可以保证它们在使用中不被改变。被声明为 final 的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为 `final` 的方法也同样只能使用，不能重写。
+
+    > 另外，在早期的 Java 实现版本中，会将 `final` 方法转为内嵌调用。但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升（现在的 Java 版本已经不需要使用 `final` 方法进行这些优化了）。类中所有的`private` 方法都隐式地指定为 `final` 。v
+
+- **finally**
+
+  在异常处理时提供 `finally` 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 `catch` 子句就会执行，然后控制就会进入 `finally` 块（如果有的话）。
+
+  在以下 4 种特殊情况下，finally块不会被执行：
+
+  - 在 `finally` 语句块中发生了异常。
+  - 在前面的代码中用了 `System.exit()` 退出程序。
+  - 程序所在的线程死亡。
+  - 关闭 CPU 。
+
+- **finalize**
+
+  `finalize` ，是方法名。Java 允许使用 `#finalize()` 方法，在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。
+
+  - 它是在 Object 类中定义的，因此所有的类都继承了它。
+  - 子类覆盖 `finalize()` 方法，以整理系统资源或者执行其他清理工作。
+  - `#finalize()` 方法，是在垃圾收集器删除对象之前对这个对象调用的。
+  - 一般情况下，我们在业务中不会自己实现这个方法，更多是在一些框架中使用，例如 [《Netty Using finalize() to release ByteBufs》](https://github.com/netty/netty/issues/4145) 。
+
+<span id = "27">
+
+<br/>
+
+## **String 类能被继承吗，为什么？**
+
+不能，因为 String 类是被 `final` 修饰的。
