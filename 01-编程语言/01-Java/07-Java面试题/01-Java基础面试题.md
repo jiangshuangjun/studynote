@@ -43,6 +43,8 @@
 - 增强代码的可靠性和灵活性
 - 增加代码的可读性
 
+<span>[回到顶部](#0)</span>
+
 <span id = "2">
 
 <br/>
@@ -69,6 +71,8 @@
 
   > 抽象，是把想法从具体的实例中分离出来的步骤，因此，要根据他们的功能而不是实现细节来创建类。Java 支持创建只暴漏接口而不包含方法实现的抽象的类。这种抽象技术的主要目的是把类的行为和实现细节分离开。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "3">
 
 <br/>
@@ -84,6 +88,8 @@
 
   > - 优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。
   > - 缺点：性能比面向过程低。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "4">
 
@@ -114,6 +120,8 @@
 | 权限   | 对权限没要求                       | 被重写的方法不能拥有更严格的权限       |
 | 范围   | 发生在一个类中                     | 发生在继承类中                         |
 
+<span>[回到顶部](#0)</span>
+
 <span id = "5">
 
 <br/>
@@ -131,6 +139,8 @@
 - **拷贝构造方法**
 
   > Java 不支持像 C++ 中那样的[拷贝构造方法](http://www.runoob.com/cplusplus/cpp-copy-constructor.html)，这个不同点是因为如果你不自己写构造方法的情况下，Java 不会创建默认的拷贝构造方法。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "6">
 
@@ -159,6 +169,8 @@
 
   ![Java技术体系所包含的内容](https://github.com/jiangshuangjun/pictures/blob/master/JDK.png)
 
+<span>[回到顶部](#0)</span>
+
 <span id = "7">
 
 <br/>
@@ -169,6 +181,8 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
 
 - Java 源文件( `.java` )被编译成能被 Java 虚拟机执行的字节码文件( `.class` )。
 - Java 被设计成允许应用程序可以运行在任意的平台，而不需要程序员为每一个平台单独重写或者是重新编译。Java 虚拟机让这个变为可能，因为它知道底层硬件平台的指令长度和其他特性。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "8">
 
@@ -181,6 +195,8 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
 - JDK5 ~ JDK10 ，看 <https://www.jianshu.com/p/37b52f1ebd4a> 
 - JDK11 ，看 <https://www.jianshu.com/p/81b65eded96c> 
 
+<span>[回到顶部](#0)</span>
+
 <span id = "9">
 
 <br/>
@@ -191,6 +207,8 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
 - Java 不提供指针来直接访问内存，程序内存更加安全。
 - Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。
 - Java 有自动内存管理机制，不需要程序员手动释放无用内存。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "10">
 
@@ -220,6 +238,8 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
   > >
   > > 例如：Python、PHP 
 
+<span>[回到顶部](#0)</span>
+
 <span id = "11">
 
 <br/>
@@ -247,6 +267,8 @@ Java 支持的数据类型包括基本数据类型和引用类型。
 - **位(bit)：**位是计算机中存储数据的最小单位，指二进制数中的一个位数，其值为“0”或“1”。
 - **字节(byte)：**字节是计算机存储容量的基本单位，一个字节由8位二进制数组成。在计算机内部，一个字节可以表示一个数据，也可以表示一个英文字母，两个字节可以表示一个汉字。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "12">
 
 <br/>
@@ -258,6 +280,8 @@ Java 支持的数据类型包括基本数据类型和引用类型。
 - 值传递，是对基本型变量而言的，传递的是该变量的一个副本，改变副本不影响原变量。
 - 引用传递，一般是对于对象型变量而言的，传递的是该对象地址的一个副本，并不是原对象本身。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "13">
 
 <br/>
@@ -268,6 +292,8 @@ Java 支持的数据类型包括基本数据类型和引用类型。
 
 如果你的代码尝试不用实例来访问非 `static` 的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "14">
 
 <br/>
@@ -276,6 +302,8 @@ Java 支持的数据类型包括基本数据类型和引用类型。
 
 - 在 C 语言中，char 类型占 1 个字节，而汉字占 2 个字节，所以不能存储。
 - 在 Java 语言中，char 类型占 2 个字节，而且 Java 默认采用 Unicode 编码，一个 Unicode 码是 16 位，所以一个 Unicode 码占两个字节，Java 中无论汉字还是英文字母，都是用 Unicode 编码来表示的。所以，在 Java 中，char 类型变量可以存储一个中文汉字。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "15">
 
@@ -295,6 +323,8 @@ Java 平台提供了两种类型的字符串：String 和 StringBuffer/StringBui
   >
   > 相同情况下使用 StirngBuilder 相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "16">
 
 <br/>
@@ -313,6 +343,8 @@ Java 平台提供了两种类型的字符串：String 和 StringBuffer/StringBui
 
   > 实际场景下，我们基本不太会出现，多线程操作同一个 StringBuffer 对象。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "17">
 
 <br/>
@@ -325,6 +357,8 @@ Java 平台提供了两种类型的字符串：String 和 StringBuffer/StringBui
 所以，总共是 1 个或者 2 个对象。
 
 具体的，可以看看 [《关于String s = new String(“xyz”); 创建几个对象的问题》](https://blog.csdn.net/tzs_1041218129/article/details/69367423) 文章的测试代码。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "18">
 
@@ -358,6 +392,8 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
 
 - 所以这两种对象都是可变的。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "19">
 
 <br/>
@@ -387,6 +423,8 @@ World
 Process finished with exit code 0
 ```
 
+<span>[回到顶部](#0)</span>
+
 <span id = "20">
 
 <br/>
@@ -409,6 +447,8 @@ Process finished with exit code 0
 
 当然，要注意下 Integer 的缓存策略，可以看看 [《理解Java Integer 的缓存策略》](http://www.importnew.com/18884.html) 文章。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "21">
 
 <br/>
@@ -427,6 +467,8 @@ Process finished with exit code 0
 
     > 例如 String 类，两个引用所指向的 String 都是 `"abc"` ，但可能出现他们实际对应的对象并不是同一个（和 JVM 实现方式有关），因此用 == 判断他们可能不相等，但用 equals 方法判断一定是相等的。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "22">
 
 <br/>
@@ -438,6 +480,8 @@ Process finished with exit code 0
 - 比如所有的对象都继承 Object ，默认使用的是 Object 的 equals 方法，在比较两个对象的时候，是看他们是否指向同一个地址。但是我们的需求是对象的某个属性相同，就相等了，而默认的 equals 方法满足不了当前的需求，所以我们要重写 equals 方法。
 - 如果重写了 equals 方法，就必须重写 hashCode 方法，否则就会降低 Map 等集合的索引速度。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "23">
 
 <br/>
@@ -446,7 +490,7 @@ Process finished with exit code 0
 
 这个问题，和上个 [「如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？」](#22) 一样的答案。
 
-<span align = 'right' style='float:right;'>[回到顶部](#0)</span>
+<span>[回到顶部](#0)</span>
 
 <span id = "24">
 
@@ -466,6 +510,8 @@ Process finished with exit code 0
   >
   > 如果 hashCode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。
 
+<span>[回到顶部](#0)</span>
+
 <span id = "25">
 
 <br/>
@@ -480,6 +526,8 @@ Process finished with exit code 0
 - equals 相等，请重写 hashCode 方法，保证 hashCode 相等。
 
 一般来说，hashCode 方法的重写，可以看看 [《科普：为什么 String hashCode 方法选择数字31作为乘子》](https://segmentfault.com/a/1190000010799123) 方法。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "26">
 
@@ -516,6 +564,8 @@ Process finished with exit code 0
   - 子类覆盖 `finalize()` 方法，以整理系统资源或者执行其他清理工作。
   - `#finalize()` 方法，是在垃圾收集器删除对象之前对这个对象调用的。
   - 一般情况下，我们在业务中不会自己实现这个方法，更多是在一些框架中使用，例如 [《Netty Using finalize() to release ByteBufs》](https://github.com/netty/netty/issues/4145) 。
+
+<span>[回到顶部](#0)</span>
 
 <span id = "27">
 
