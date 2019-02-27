@@ -28,6 +28,19 @@
   - [**25 - 有没有可能 2 个不相等的对象有相同的 hashCode？**](#25)
   - [**26 - final、finally、finalize 的区别？**](#26)
   - [**27 - String 类能被继承吗，为什么？**](#27)
+  - [**28 - 抽象类和接口有什么区别？**](#28)
+  - [**29 - 继承和组合的区别在哪？**](#29)
+  - [**30 - 请详细讲述一下 RandomAccess 接口有什么作用？**](#30)
+  - [**31 - 讲讲类的实例化顺序？**](#31)
+  - [**32 - 什么是内部类？**](#32)
+  - [**33 - 什么是 Java IO ？**](#33)
+  - [**34 - 什么是 Java 序列化？**](#34)
+  - [**35 - 如何实现对象克隆？**](#35)
+  - [**36 - error 和 exception 有什么区别？CheckedException 和 RuntimeException 有什么区别？**](#36)
+  - [**37 - 说说反射的用途及实现？**](#37)
+  - [**38 - 什么是注解？**](#38)
+  - [**39 - 什么时候用断言（`assert`）？**](#39)
+  - [**40 - Java 对象创建的方式？**](#40)
 
 <span id = "1">
 
@@ -574,3 +587,323 @@ Process finished with exit code 0
 ## **String 类能被继承吗，为什么？**
 
 不能，因为 String 类是被 `final` 修饰的。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "28">
+
+<br/>
+
+## **抽象类和接口有什么区别？**
+
+从设计层面来说，抽象是对类的抽象，是一种模板设计，接口是行为的抽象，是一种行为的规范。
+
+- Java 提供和支持创建抽象类和接口。它们的实现有共同点，不同点在于：接口中所有的方法隐含的都是抽象的，而抽象类则可以同时包含抽象和非抽象的方法。
+- 类可以实现很多个接口，但是只能继承一个抽象类。类可以不实现抽象类和接口声明的所有方法，当然，在这种情况下，类也必须得声明成是抽象的。
+- 抽象类可以在不提供接口方法实现的情况下实现接口。
+- Java 接口中声明的变量默认都是 `final` 的。抽象类可以包含非 `final` 的变量。
+- Java 接口中的成员函数默认是 `public` 的。抽象类的成员函数可以是 `private`，`protected` 或者是 `public` 。
+- 接口是绝对抽象的，不可以被实例化。抽象类也不可以被实例化，但是，如果它包含 `#main(String[] args)` 方法的话是可以被调用的。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "29">
+
+<br/>
+
+## **继承和组合的区别在哪？**
+
+- 继承：指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力，继承是类与类或者接口与接口之间最常见的关系。在 Java 中，此类关系通过关键字 `extends` 明确标识，在设计时一般没有争议性。
+- 组合：组合是关联关系的一种特例，他体现的是整体与部分、拥有的关系，即 has-a 的关系，此时整体与部分之间是可分离的，他们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享。
+  - 比如，计算机与 CPU 、公司与员工的关系等。
+  - 表现在代码层面，和关联关系是一致的，只能从语义级别来区分。
+
+因为组合能带来比继承更好的灵活性，所以有句话叫做“组合优于继承”。感兴趣的胖友，可以看看 [《怎样理解“组合优于继承”以及“OO的反模块化”，在这些方面FP具体来说有什么优势？》](https://www.zhihu.com/question/21862257) 文章。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "30">
+
+<br/>
+
+##  **请详细讲述一下 RandomAccess 接口有什么作用？**
+
+RandomAccess 用来当标记的，是一种**标记**接口，接口的非典型用法。意思是，随机访问任意下标元素都比较快。例如`ArrayList`,`CopyOnWriteArrayList`,`Vector`等。
+
+用处是当要实现某些算法时，会判断当前类是否实现了 RandomAccess 接口，会根据结果选择不同的算法。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "31">
+
+<br/>
+
+## **讲讲类的实例化顺序？**
+
+初始化顺序如下：
+
+- 父类静态变量
+- 父类静态代码块
+- 子类静态变量
+- 子类静态代码块
+- 父类非静态变量（父类实例成员变量）
+- 父类构造函数
+- 子类非静态变量（子类实例成员变量）
+- 子类构造函数
+
+感兴趣的胖友，可以详细看看 [《Java 类的实例化顺序》](https://blog.csdn.net/Vencc__/article/details/52222628) 文章，提供的示例。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "32">
+
+<br/>
+
+## **什么是内部类？**
+
+简单的说，就是在一个类、接口或者方法的内部创建另一个类。这样理解的话，创建内部类的方法就很明确了。当然，详细的可以看看 [《Java 内部类总结（吐血之作）》](https://blog.csdn.net/hikvision_java_gyh/article/details/8964155) 文章。
+
+- **内部类的作用是什么？**
+
+  > 内部类提供了更好的封装，除了该外围类，其他类都不能访问。
+
+- **Anonymous Inner Class(匿名内部类)是否可以继承其它类？是否可以实现接口？**
+
+  > 可以继承其他类或实现其他接口，在 Java 集合的流式操作中，我们常常这么干。
+
+- **内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？**
+
+  > 一个内部类对象可以访问创建它的外部类对象的成员，包括私有成员。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "33">
+
+<br/>
+
+## **什么是 Java IO ？**
+
+Java IO 相关的类，在 `java.io` 包下，具体操作分成面向字节(Byte)和面向字符(Character)两种方式。如下图所示： 
+
+![](https://github.com/jiangshuangjun/pictures/blob/master/IO%E6%B5%81.png)
+
+<span>[回到顶部](#0)</span>
+
+<span id = "34">
+
+<br/>
+
+## **什么是 Java 序列化？**
+
+序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。
+
+- 可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。
+- 序列化是为了解决在对对象流进行读写操作时所引发的问题。
+
+反序列化的过程，则是和序列化相反的过程。
+
+> 另外，我们不能将序列化局限在 Java 对象转换成二进制数组，例如说，我们将一个 Java 对象，转换成 JSON 字符串，或者 XML 字符串，这也可以理解为是序列化。
+
+#### **如何实现 Java 序列化？**
+
+> Java内置的序列化方式是，将需要被序列化的类，实现 `Serializable` 接口，即标注了该对象是可被序列化的。实际场景下，我们可以自定义序列化的方案，例如说 Google Protobuf 。可参考 [Java序列化框架](https://blog.csdn.net/fenglongmiao/article/details/79425218)
+
+- 序列化
+  - 先使用一个输出流(如：FileOutputStream)来构造一个 ObjectOutputStream(对象流)对象
+  - 然后使用 ObjectOutputStream 对象的 `#writeObject(Object obj)` 方法，就可以将参数为 `obj` 的对象写出(即保存其状态)。
+- 反序列化
+  - 要恢复的话则用输入流。
+
+#### **Java 序列话中，如果有些字段不想进行序列化怎么办？**
+
+对于不想进行序列化的变量，使用 `transient` 关键字修饰。
+
+- 当对象被序列化时，阻止实例中那些用此关键字修饰的的变量序列化。
+- 当对象被反序列化时，被 `transient` 修饰的变量值不会被持久化和恢复。
+- `transient` 只能修饰变量，不能修饰类和方法。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "35">
+
+<br/>
+
+## **如何实现对象克隆？**
+
+一般来说，有两种方式：
+
+- 实现 Cloneable 接口，并重写 Object 类中的 `#clone()` 方法。可以实现**浅克隆**，也可以实现**深克隆**。
+- 实现 Serializable 接口，通过对象的序列化和反序列化实现克隆。可以实现真正的**深克隆**。
+
+具体的代码实现，可以看看 [《Java 对象的浅克隆和深克隆》](https://blog.csdn.net/caomiao2006/article/details/52590622) 文章。
+
+实际场景下，我们使用的克隆比较少，更多是对象之间的属性克隆。例如说，将 DO 的属性复制到 DTO 中，又或者将 DTO 的属性复制到 VO 中。此时，我们一般使用 BeanUtils 工具类。具体的使用，看看 [《浅谈 BeanUtils 的拷贝，深度克隆》](https://www.cnblogs.com/tison/p/7840647.html) 文章。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "36">
+
+<br/>
+
+## **error 和 exception 有什么区别？CheckedException 和 RuntimeException 有什么区别？**
+
+Java 的异常体系，基于共同的祖先 `java.lang.Throwable` 类。如下图所示：
+
+![](https://github.com/jiangshuangjun/pictures/blob/master/Throwable.png)
+
+- Error（错误），表示系统级的错误和程序不必处理的异常，是 Java 运行环境中的内部错误或者硬件问题。
+  - 例如：内存资源不足等。
+  - 对于这种错误，程序基本无能为力，除了退出运行外别无选择，它是由 Java 虚拟机抛出的。
+- Exception（异常），表示需要捕捉或者需要程序进行处理的异常，它处理的是因为程序设计的瑕疵而引起的问题或者在外的输入等引起的一般性问题，是程序必须处理的。Exception 又分为运行时异常，受检查异常。
+  - RuntimeException(运行时异常)，表示无法让程序恢复的异常，导致的原因通常是因为执行了错误的操作，建议终止逻辑，因此，编译器不检查这些异常。
+  - CheckedException(受检查异常)，是表示程序可以处理的异常，也即表示程序可以修复（由程序自己接受异常并且做出处理），所以称之为受检查异常。
+
+#### **异常的使用的注意地方？**
+
+神作《Effective Java》中对异常的使用给出了以下指导原则：
+
+- 不要将异常处理用于正常的控制流（设计良好的 API 不应该强迫它的调用者为了正常的控制流而使用异常）。
+- 对可以恢复的情况使用受检异常，对编程错误使用运行时异常。
+- 避免不必要的使用受检异常（可以通过一些状态检测手段来避免异常的发生）。
+- 优先使用标准的异常。
+- 每个方法抛出的异常都要有文档。
+- 保持异常的原子性。
+- 不要在 `catch` 中忽略掉捕获到的异常。
+
+#### **Throwable 类常用方法？**
+
+- `#getMessage()` 方法：返回异常发生时的详细信息。
+- `#getCause()` 方法：获得导致当前 Throwable 异常的 Throwable 异常。
+- `#getStackTrace()` 方法：获得 Throwable 对象封装的异常信息。
+  - `#printStackTrace()` 方法：在控制台上打印。
+
+#### **请列出 5 个运行时异常？**
+
+- NullPointerException
+
+- IllegalArgumentException
+- ClassCastException
+- ArrayIndexOutOfBoundsException
+- ArithmeticException
+
+#### **throw 与 throws 的区别 ？**
+
+- `throw` ，用于在程序中显式地抛出一个异常。
+- `throws` ，用于指出在该方法中没有处理的异常。**每个方法必须显式指明哪些异常没有处理，以便该方法的调用者可以预防可能发生的异常**。最后，多个异常用逗号分隔。
+
+#### **异常处理中 finally 语句块的重要性?**
+
+不管程序是否发生了异常, `finally` 语句块都会被执行，甚至当没有`catch` 声明但抛出了一个异常时, `finally` 语句块也会被执行。
+
+`finally` 语句块通常用于释放资源, 如 I/O 缓冲区, 数据库连接等等。
+
+#### **异常被处理后异常对象会发生什么?**
+
+异常对象会在下次 GC 执行时被回收。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "37">
+
+<br/>
+
+## **说说反射的用途及实现？**
+
+Java 反射机制主要提供了以下功能：
+
+- 在运行时构造一个类的对象。
+- 判断一个类所具有的成员变量和方法。
+- 调用一个对象的方法。
+- 生成动态代理。
+
+反射的应用很多，很多框架都有用到：
+
+- Spring 框架的 IoC 基于反射创建对象和设置依赖属性。
+- Spring MVC 的请求调用对应方法，也是通过反射。
+- JDBC 的 `Class#forName(String className)` 方法，也是使用反射。
+
+不了解 Java 反射的同学，可以看看 [《什么是反射、反射可以做些什么》](http://www.cnblogs.com/zhaopei/p/reflection.html) 。
+
+#### **反射中，Class.forName 和 ClassLoader 区别？**
+
+这两者，都可用来对类进行加载。差别在于：
+
+- `Class#forName(...)` 方法，除了将类的 `.class` 文件加载到JVM 中之外，还会对类进行解释，执行类中的 `static` 块。
+
+- ClassLoader 只干一件事情，就是将 `.class` 文件加载到 JVM 中，不会执行 `static` 中的内容，只有在 newInstance 才会去执行 `static` 块。
+
+  > `Class#forName(name, initialize, loader)` 方法，带参函数也可控制是否加载 `static` 块，并且只有调用了newInstance 方法采用调用构造函数，创建类的对象。
+
+详细的测试，可以看看 [《Java 反射中，Class.forName 和ClassLoader 的区别(代码说话)》](https://blog.csdn.net/qq_27093465/article/details/52262340) 文章。
+
+#### **UnsupportedOperationException 是什么？**
+
+UnsupportedOperationException ，是用于表明操作不支持的异常。
+
+在 JDK 类中已被大量运用，在集合框架`java.util.Collections.UnmodifiableCollection` 将会在所有 add 和 remove 操作中抛出这个异常。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "38">
+
+<br/>
+
+## **什么是注解？**
+
+直接看 [《深入浅出 Java 注解》](https://www.jianshu.com/p/5cac4cb9be54) 。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "39">
+
+<br/>
+
+## **什么时候用断言（`assert`）？**
+
+断言，在软件开发中是一种常用的调试方式，很多开发语言中都支持这种机制。
+
+- 一般来说，断言用于保证程序最基本、关键的正确性。断言检查通常在开发和测试时开启。为了保证程序的执行效率，在软件发布后断言检查通常是关闭的。
+
+- 断言是一个包含布尔表达式的语句，在执行这个语句时假定该表达式为`true`；如果表达式的值为 `false` ，那么系统会报告一个AssertionError 错误。断言的使用如下面的代码所示：
+
+  ```java
+  // throws an AssertionError if a <= 0
+  assert(a > 0);
+  ```
+
+- 断言可以有两种形式：
+  - assert Expression1;
+    - Expression1 应该总是产生一个布尔值。
+  - `assert Expression1 : Expression2;` 
+    - Expression2 可以是得出一个值的任意表达式；这个值用于生成显示更多调试信息的字符串消息。
+- 要在运行时启用断言，可以在启动 JVM 时使用 `-enableassertions` 或者 `-ea` 标记。要在运行时选择禁用断言，可以在启动 JVM 时使用 `-da` 或者 `-disableassertions` 标记。要在系统类中启用或禁用断言，可使用 `-esa` 或 `-dsa` 标记。还可以在包的基础上启用或者禁用断言。
+
+当然，实际场景下，我们会在 Spring 的源码中看到，它自己封装了 Assert 类，实现更方便的断言功能，并且，在生产环境下也启用。
+
+另外，在单元测试中，也会使用自己封装的断言类，判断执行结果的正确与错误。
+
+<span>[回到顶部](#0)</span>
+
+<span id = "40">
+
+<br/>
+
+## **Java 对象创建的方式？**
+
+- 使用 `new` 关键字创建对象。
+- 使用 Class 类的 newInstance 方法(反射机制)。
+- 使用 Constructor 类的 newInstance 方法(反射机制)。
+- 使用 clone 方法创建对象。
+- 使用(反)序列化机制创建对象。
+
+<br/>
+
+---
+
+参考与推荐如下文章：
+
+- [2018年最新Java面试题及答案整理](https://juejin.im/entry/5af2557c6fb9a07aa83eb59c)
+- [32道常见的Java基础面试题](http://www.ituring.com.cn/article/507089)
+- [Java总结](http://www.n35n.com/2017/07/JAVA%E6%80%BB%E7%BB%93/)
+- [Java基础知识](https://github.com/Snailclimb/JavaGuide/blob/3dc5234d3a77d134e4768b17cc864c4cc1030e41/Java%E7%9B%B8%E5%85%B3/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+- [Java面试宝典](http://wiki.jikexueyuan.com/project/java-interview-bible/basic-concept.html)
