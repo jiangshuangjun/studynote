@@ -444,7 +444,7 @@ Process finished with exit code 0
 
 ## **说一说你对 java.lang.Object 对象中 hashCode 和 equals 方法的理解。在什么场景下需要重新实现这两个方法?**
 
-这个问题，和上个 [「如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？」](#23) 一样的答案。
+这个问题，和上个 [「如何在父类中为子类自动完成所有的 hashCode 和 equals 实现？这么做有何优劣？」](#22) 一样的答案。
 
 <span id = "24">
 
