@@ -42,6 +42,8 @@
   - [**39 - 什么时候用断言（`assert`）？**](#39)
   - [**40 - Java 对象创建的方式？**](#40)
 
+以下面试题，基于网络整理和自己编辑。参考文章见文末。
+
 <span id = "1">
 
 <br/>
@@ -205,8 +207,8 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
 
 对于大多数面试官，肯定不会问你 JDK 各版本的新特性，更多的会问 JDK8 引入了什么重要的特性？一般上，关键的回答是Lambda 表达式和集合之流式操作，然后说说你在项目中怎么使用的。
 
-- JDK5 ~ JDK10 ，看 <https://www.jianshu.com/p/37b52f1ebd4a> 
-- JDK11 ，看 <https://www.jianshu.com/p/81b65eded96c> 
+- JDK5 ~ JDK10 ，看 <https://www.jianshu.com/p/37b52f1ebd4a>
+- JDK11 ，看 <https://www.jianshu.com/p/81b65eded96c>
 
 <span>[回到顶部](#0)</span>
 
@@ -245,11 +247,11 @@ Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。
 
   > Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不专对一种特定的机器，因此，Java程序无须重新编译便可在多种不同的计算机上运行。
   >
-  > 解释型语言扫盲 : 
+  > 解释型语言扫盲 :
   >
   > > 解释型语言，是在运行的时候将程序翻译成机器语言。解释型语言的程序不需要在运行前编译，在运行程序的时候才翻译，专门的解释器负责在每个语句执行的时候解释程序代码。这样解释型语言每执行一次就要翻译一次，效率比较低。——百度百科
   > >
-  > > 例如：Python、PHP 
+  > > 例如：Python、PHP
 
 <span>[回到顶部](#0)</span>
 
@@ -429,7 +431,7 @@ public static void main(String[] args) {
 
 ```java
 ...
-    
+
 Hello
 World
 
@@ -683,7 +685,7 @@ RandomAccess 用来当标记的，是一种**标记**接口，接口的非典型
 
 ## **什么是 Java IO ？**
 
-Java IO 相关的类，在 `java.io` 包下，具体操作分成面向字节(Byte)和面向字符(Character)两种方式。如下图所示： 
+Java IO 相关的类，在 `java.io` 包下，具体操作分成面向字节(Byte)和面向字符(Character)两种方式。如下图所示：
 
 ![](https://github.com/jiangshuangjun/pictures/blob/master/IO%E6%B5%81.png)
 
@@ -874,7 +876,7 @@ UnsupportedOperationException ，是用于表明操作不支持的异常。
 - 断言可以有两种形式：
   - assert Expression1;
     - Expression1 应该总是产生一个布尔值。
-  - `assert Expression1 : Expression2;` 
+  - `assert Expression1 : Expression2;`
     - Expression2 可以是得出一个值的任意表达式；这个值用于生成显示更多调试信息的字符串消息。
 - 要在运行时启用断言，可以在启动 JVM 时使用 `-enableassertions` 或者 `-ea` 标记。要在运行时选择禁用断言，可以在启动 JVM 时使用 `-da` 或者 `-disableassertions` 标记。要在系统类中启用或禁用断言，可使用 `-esa` 或 `-dsa` 标记。还可以在包的基础上启用或者禁用断言。
 
