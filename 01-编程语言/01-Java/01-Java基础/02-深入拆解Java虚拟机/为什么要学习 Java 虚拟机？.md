@@ -8,4 +8,5 @@
 - 当然，学习 Java 虚拟机的本质，更多是了解 Java 程序是如何被执行且优化的
 
 ### 学习 Java 虚拟机的路线导图
-![深入拆解Java虚拟机](https://raw.githubusercontent.com/jiangshuangjun/pictures/master/%E6%B7%B1%E5%85%A5%E6%8B%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA.png)
+
+![深入拆解Java虚拟机](../../../../04-资源/01-图片/深入拆解Java虚拟机.png)
