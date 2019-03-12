@@ -1,0 +1,126 @@
+## **装饰器模式 Decorator**
+
+### **动机(Motivation)**
+
+- 在某些情况下，我们可能会过度地使用继承来扩展对象的功能，由于继承为类型引入的静态特质，使得这种扩展方式缺乏灵活性；并且随着子类的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀。
+- 如何使“对象功能的扩展”能够根据需要来动态地实现？同时避免“扩展功能的增多”带来的子类膨胀问题？从而使得任何“功能扩展变化”所导致的影响降为最低？
+
+### **模式定义**
+
+动态(组合)地给一个对象增加一些额外的职责。就增加功能而言，Decorator 模式比生成子类(继承)更为灵活(消除重复代码 & 减少子类个数)。——《设计模式》GoF
+
+### **结构(Structure)**
+
+![装饰器模式类图](https://github.com/jiangshuangjun/pictures/blob/master/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%B1%BB%E5%9B%BE.jpg)
+
+### **显著特征**
+
+如果在代码中出现如下类似代码：
+
+```java
+public class ClassA implements InterfaceA {
+    InterfaceA a;
+    // ...
+}
+```
+
+一个类既实现了  `InterfaceA` 接口，又包含  `InterfaceA` 字段，那么在这段代码的位置，几乎可以肯定使用了装饰器模式。其中，实现 `InterfaceA` 是为了确保 `ClassA` 保留 `InterfaceA` 接口的规范，而包含 `InterfaceA` 字段是为了利用组合实现多态。
+
+### **要点总结**
+
+- 通过采用组合而非继承的手法，Decorator 模式实现了在运行时动态扩展对象功能的能力，而且可以根据需要扩展多个功能。避免了使用继承带来的“灵活性差”和“多子类衍生问题”。
+- Decorator 类在接口上表现为 is-a Component 的继承关系，即 Decorator 类继承了 Component 类所具有的接口。但在实现上又表现为 has-a Component 的组合关系，即 Decorator 类又使用了另外一个 Component 类。
+- Decorator 模式的目的并非解决“多子类衍生的多继承”问题，Decorator 模式应用的要点在于解决“主体类在多个方向上的扩展功能”——是为“装饰”的含义。
+
+### **理解与代码设计**
+
+装饰器，顾名思义，需要装饰谁？这个“谁”就是装饰器模式的主体，这个主体的具体实现一般会有规范它行为特质的接口（接口就是规范），我们可以通过实现这个接口添加一个抽象装饰器（为了进一步的扩展装饰器的能力，所以这个装饰器为抽象的，或者称之为非叶子节点的，非最终使用的装饰器），当需要为主体对象扩展某些功能或者附加某些责任时，再创建具体的装饰器对象去继承上面的抽象装饰器，达到扩展主体对象功能或附加责任的目的。综上，代码设计思路如下：
+
+- 明确需要装饰（扩展、附加责任）的主体对象如 `ClassA` ，示例代码如下：
+
+  ```java
+  public class ClassA {
+      @Override
+      public void eat() {
+          System.out.println("吃饭");
+      }
+  }
+  ```
+
+- 抽象出该主体对象的接口（规范）如 `InterfaceA` ，示例代码如下：
+
+  ```java
+  public interface InterfaceA {
+      void eat();
+  }
+  ```
+
+- 创建抽象装饰器如 `DecoratorA` ，示例代码如下（**装饰器模式显著代码特征**）：
+
+  ```java
+  public abstract class DecoratorA implements InterfactA {
+      protected InterfaceA interfaceA;
+  }
+  ```
+
+- 创建具体的装饰器，用来扩展主体对象的功能，如 `ConcreteDecoratorA` ，示例代码如下：
+
+  ```java
+  public class ConcreteDecoratorA extends DecoratorA {
+      public ConcreteDecoratorA (InterfaceA interfaceA) {
+          this.interfaceA = interfaceA;
+      }
+      
+      // 下方重写 `override` InterfaceA 中的方法，做功能加强
+      @Override
+      public void eat() {
+          // 功能加强
+          System.out.println("饭前洗手");
+          // 调用主体类方法，执行功能
+          this.interfaceA.eat();
+          // 功能加强
+          System.out.println("饭后洗手");
+      }
+  }
+  ```
+
+- 测试示例代码如下：
+
+  ```java
+  @Test
+  public void ConcreteDecoratorTest() {
+      // 不使用装饰器
+      System.out.println("不使用装饰器：");
+      InterfaceA classA = new ClassA();
+      classA.eat();
+  
+      System.out.println();
+      System.out.println("-------------------------------------------");
+      System.out.println();
+  
+      // 使用装饰器
+      System.out.println("使用装饰器：");
+      InterfaceA concreteDecoratorA = new ConcreteDecoratorA(new ClassA());
+      concreteDecoratorA.eat();
+  }
+  ```
+
+  输出如下所示：
+
+  ```java
+  不使用装饰器：
+  吃饭
+  
+  -------------------------------------------
+  
+  使用装饰器：
+  饭前洗手
+  吃饭
+  饭后洗手
+  ```
+
+### **代码实现**
+
+模拟小明“吃饭”和“找对象”场景：
+
+[小明-装饰器模式](https://github.com/jiangshuangjun/mystudy/tree/master/design-pattern/src/main/java/study/pattern/decorator)
