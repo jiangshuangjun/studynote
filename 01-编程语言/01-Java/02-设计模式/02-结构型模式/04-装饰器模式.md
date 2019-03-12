@@ -88,7 +88,7 @@ public class ClassA implements InterfaceA {
 
   ```java
   @Test
-  public void ConcreteDecoratorTest() {
+  public void concreteDecoratorTest() {
       // 不使用装饰器
       System.out.println("不使用装饰器：");
       InterfaceA classA = new ClassA();
