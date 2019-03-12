@@ -9,4 +9,4 @@
 
 ### 学习 Java 虚拟机的路线导图
 
-![深入拆解Java虚拟机](../../../../04-资源/01-图片/深入拆解Java虚拟机.png)
+![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/%E6%B7%B1%E5%85%A5%E6%8B%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA.png)

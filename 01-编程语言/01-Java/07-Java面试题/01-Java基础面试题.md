@@ -184,7 +184,7 @@
 
 - Java技术体系所包含的内容
 
-  ![](../../../04-资源/01-图片/JDK.png)
+  ![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/JDK.png)
 
 <span>[回到顶部](#0)</span>
 
@@ -689,7 +689,7 @@ RandomAccess 用来当标记的，是一种**标记**接口，接口的非典型
 
 Java IO 相关的类，在 `java.io` 包下，具体操作分成面向字节(Byte)和面向字符(Character)两种方式。如下图所示：
 
-![](../../../04-资源/01-图片/IO流.png)
+![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/IO%E6%B5%81.png)
 
 <span>[回到顶部](#0)</span>
 
@@ -753,7 +753,7 @@ Java IO 相关的类，在 `java.io` 包下，具体操作分成面向字节(Byt
 
 Java 的异常体系，基于共同的祖先 `java.lang.Throwable` 类。如下图所示：
 
-![](../../../04-资源/01-图片/Throwable.png)
+![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/Throwable.png)
 
 - Error（错误），表示系统级的错误和程序不必处理的异常，是 Java 运行环境中的内部错误或者硬件问题。
   - 例如：内存资源不足等。
