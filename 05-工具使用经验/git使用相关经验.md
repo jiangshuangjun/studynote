@@ -4,11 +4,11 @@
 
 - 情形显示如下
 
-  ![]()
+  ![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/git_status%E4%B8%AD%E6%96%87%E6%95%B0%E5%AD%97%E4%B9%B1%E7%A0%81.png)
 
 - 解决方式，加入如下配置：git config --global core.quotepath false
 
-  ![]()
+  ![](https://raw.githubusercontent.com/jiangshuangjun/studynote/master/04-%E8%B5%84%E6%BA%90/01-%E5%9B%BE%E7%89%87/git_status%E4%B8%AD%E6%96%87%E6%95%B0%E5%AD%97%E4%B9%B1%E7%A0%81_%E8%A7%A3%E5%86%B3.png)
 
 ---
 
