@@ -4,10 +4,10 @@
 
 ## :book: 清单
 
-- :closed_book: [编程语言笔记](/studynote/01-编程语言/README.md)
-- :green_book: [计算机基础笔记](/studynote/02-计算机基础/README.md)
-- :blue_book: [读书笔记](/studynote/03-读书笔记/README.md)
-- :orange_book: ​[经验总结笔记](/sudtynote/05-经验总结/README.md)
+- :closed_book: [编程语言笔记](./01-编程语言/README.md)
+- :green_book: [计算机基础笔记](./02-计算机基础/README.md)
+- :blue_book: [读书笔记](./03-读书笔记/README.md)
+- :orange_book: [经验总结笔记](./05-经验总结/README.md)
 
 ## :page_with_curl: 写作规范
 
