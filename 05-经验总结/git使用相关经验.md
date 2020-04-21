@@ -200,3 +200,18 @@ git查看有哪些对比工具可以设置
 - 只查找merge提交信息
 
   > git log --grep=Merge\ branch
+
+## windows idea 配置 terminal 为 bash
+
+打开 idea 系统设置，terminal 选项，`Application settings` 菜单项中 `shell path` 设置为 gitBash 安装目录下 bin/bash.exe
+
+同时，由于 windows10 系统默认的系统编码集为 GBK，为了防止 idea terminal 配置为 git bash 之后，git log 显示中文乱码，故还需添加如下配置：
+
+打开 gitBash 的安装目录，找到 etc/.bashrc 配置文件，在末尾追加如下配置内容
+
+```shell
+# 解决 windows10 idea terminal 设置为 bash 后，git log 无法正确显示中文问题
+export LANG="zh_CN.UTF-8"
+export LC_ALL="zh_CN.UTF-8"
+```
+
