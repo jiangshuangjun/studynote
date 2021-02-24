@@ -147,6 +147,7 @@
 
   - location:地区
   - language:语言
+  - pushed:>YYYY-MM-DD // 最后更新时间大于 YYYY-MM-DD
 
 - 例：地区北京的 Java 方向的用户
 
